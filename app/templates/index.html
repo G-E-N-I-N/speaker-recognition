@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Reconnaissance de Locuteur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Bouton d'enregistrement -->
+    <button id="record-btn" class="blinking">🎤 Enregistrer</button>
+    <span id="record-status"></span>
+    <br><br>
+
+    <!-- Zone de drag & drop -->
+    <div id="drop-area">
+        <button id="plus-btn" title="Charger un audio">+</button>
+        <p>Glissez-déposez un fichier audio ici ou cliquez pour sélectionner</p>
+        <input type="file" id="audio-input" accept="audio/*" style="display: none;">
+    </div>
+    <br>
+    <button id="upload-btn" style="display:none;">Envoyer</button>
+
+    <!-- Liste déroulante des audios chargés -->
+    <div id="audio-list-container">
+        <div id="audio-list"></div>
+    </div>
+
+    <div id="result"></div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
