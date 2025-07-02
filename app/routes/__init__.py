@@ -53,18 +53,11 @@ def cli():
         return jsonify({"error": "Input must be a list of 22 features."}), 400
 
     
-    CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-    MODEL_PATH = os.path.join(CURRENT_DIR, '..', 'model', 'stacking_model.pkl')
-    MODEL_PATH = os.path.abspath(MODEL_PATH)
-    with open(MODEL_PATH, "rb") as f:
+    with open("../model/stacking_model.pkl", "rb") as f:
         model = pickle.load(f)
-    LE_PATH = os.path.join(CURRENT_DIR, '..', 'model', 'le.pkl')
-    LE_PATH = os.path.abspath(LE_PATH)
-    with open(LE_PATH, "rb") as f:
+    with open("../model/le.pkl", "rb") as f:
         le = pickle.load(f)
-    SCALER_PATH = os.path.join(CURRENT_DIR, '..', 'model', 'scaler.pkl')
-    SCALER_PATH = os.path.abspath(SCALER_PATH)
-    with open(SCALER_PATH, "rb") as f:
+    with open("../model/scaler.pkl", "rb") as f:
         scaler = pickle.load(f)
     new_scaled = scaler.transform(features)
     prediction = model.predict_proba(new_scaled)[0]
