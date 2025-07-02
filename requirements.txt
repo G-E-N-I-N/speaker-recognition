@@ -1,4 +1,4 @@
-﻿audioop-lts==0.2.1
+audioop-lts==0.2.1
 audioread==3.0.1
 blinker==1.9.0
 certifi==2025.6.15
@@ -15,17 +15,16 @@ Jinja2==3.1.6
 joblib==1.5.1
 lazy_loader==0.4
 librosa==0.10.1
-llvmlite<0.43
+llvmlite==0.44.0
 MarkupSafe==3.0.2
 msgpack==1.1.1
-numba<0.59
+numba==0.61.2
 numpy==2.2.6
 packaging==25.0
 platformdirs==4.3.8
 pooch==1.8.2
 pycparser==2.22
 requests==2.32.4
-setuptools<81
 scikit-learn==1.6.1
 scipy==1.16.0
 soundfile==0.13.1
