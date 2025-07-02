@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, jsonify
 import numpy as np
+import os
 import pickle
 
 from app.routes.function import feature_extraction
@@ -19,14 +20,19 @@ def recognize():
     audio_name = request.form['name']
 
     features = feature_extraction(audio_file)
-    if not isinstance(features, list) or len(features) != 22:
-        return jsonify({"error": "Input must be a list of 22 features."}), 400
 
-    with open("../model/stacking_model.pkl", "rb") as f:
+    CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+    MODEL_PATH = os.path.join(CURRENT_DIR, '..', 'model', 'stacking_model.pkl')
+    MODEL_PATH = os.path.abspath(MODEL_PATH)
+    with open(MODEL_PATH, "rb") as f:
         model = pickle.load(f)
-    with open("../model/le.pkl", "rb") as f:
+    LE_PATH = os.path.join(CURRENT_DIR, '..', 'model', 'le.pkl')
+    LE_PATH = os.path.abspath(LE_PATH)
+    with open(LE_PATH, "rb") as f:
         le = pickle.load(f)
-    with open("../model/scaler.pkl", "rb") as f:
+    SCALER_PATH = os.path.join(CURRENT_DIR, '..', 'model', 'scaler.pkl')
+    SCALER_PATH = os.path.abspath(SCALER_PATH)
+    with open(SCALER_PATH, "rb") as f:
         scaler = pickle.load(f)
     new_scaled = scaler.transform(features)
     prediction = model.predict_proba(new_scaled)[0]

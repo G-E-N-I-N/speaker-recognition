@@ -43,5 +43,4 @@ def feature_extraction(audio_path):
 
     # --- Fusion des descripteurs ---
     features = np.concatenate([mfcc_mean, pitch_features, formants, rms_features])
-    print(features)
     return features.reshape(1, -1)
