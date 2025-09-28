@@ -1,3 +1,7 @@
+## Note
+
+En cours de developpement
+
 # Speaker Recognition
 
 Ce projet vise à développer un système de reconnaissance vocale permettant d’identifier et de différencier les locuteurs à partir d’enregistrements audio. Il combine des technologies web et des algorithmes d’intelligence artificielle pour offrir une expérience utilisateur interactive via une interface web.
